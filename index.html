@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AkiraTek — Smart Home Platform</title>
+<title>Darken · Amber — Smart Home Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --amber:     #FFB300;
-    --amber-dim: #CC8E00;
-    --amber-glow:#FFB30033;
-    --bg:        #080808;
-    --surface:   #111111;
-    --surface2:  #181818;
-    --border:    #222222;
-    --text:      #F5F5F5;
-    --muted:     #666666;
-    --white:     #FFFFFF;
+    --amber:     #E8A020;
+    --amber-dim: #B87A18;
+    --amber-glow:#E8A02033;
+    --bg:        #0F0A05;
+    --surface:   #1A1108;
+    --surface2:  #241808;
+    --border:    #2A1E0A;
+    --text:      #F0E8D8;
+    --muted:     #8A7A62;
+    --white:     #F0E8D8;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -50,19 +50,23 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 40px;
-    background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
+    background: linear-gradient(to bottom, rgba(15,10,5,0.95), transparent);
     backdrop-filter: blur(8px);
   }
 
   .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 7px;
   }
+  .nav-logo .d { color: var(--white); }
+  .nav-logo .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--amber); }
   .nav-logo .a { color: var(--amber); }
-  .nav-logo .t { color: var(--white); }
 
   .nav-lang { display: flex; gap: 4px; }
 
@@ -103,7 +107,7 @@
     top: 50%; left: 50%;
     transform: translate(-50%, -60%);
     width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(255,179,0,0.07) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(232,160,32,0.06) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -118,7 +122,7 @@
     color: var(--muted);
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
     animation: fadeUp 0.6s ease both;
   }
 
@@ -126,7 +130,6 @@
     width: 6px; height: 6px;
     border-radius: 50%;
     background: var(--amber);
-    box-shadow: 0 0 8px var(--amber);
     animation: pulse 2s infinite;
   }
 
@@ -135,16 +138,21 @@
   }
 
   .hero-logo {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(64px, 12vw, 120px);
-    font-weight: 800;
-    letter-spacing: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(48px, 10vw, 96px);
+    font-weight: 500;
+    letter-spacing: 0.05em;
     line-height: 1;
-    margin-bottom: 24px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 2vw, 24px);
     animation: fadeUp 0.6s 0.1s ease both;
   }
+  .hero-logo .d { color: var(--white); }
+  .hero-logo .sep { color: var(--amber); font-size: 0.4em; line-height: 1; }
   .hero-logo .a { color: var(--amber); }
-  .hero-logo .t { color: var(--white); }
 
   .hero-sub {
     font-size: clamp(14px, 2vw, 17px);
@@ -160,20 +168,20 @@
     align-items: center;
     gap: 10px;
     background: var(--amber);
-    color: #000;
+    color: var(--bg);
     border: none;
     border-radius: 10px;
     padding: 14px 28px;
-    font-family: 'Syne', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     cursor: pointer;
     text-decoration: none;
     transition: background 0.2s, transform 0.15s;
     animation: fadeUp 0.6s 0.3s ease both;
   }
-  .hero-cta:hover { background: #FFC933; transform: translateY(-2px); }
+  .hero-cta:hover { background: #F0B030; transform: translateY(-2px); }
 
   .scroll-hint {
     position: absolute;
@@ -254,15 +262,15 @@
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 2px;
+    height: 1px;
     background: linear-gradient(90deg, transparent, var(--amber), transparent);
     opacity: 0;
     transition: opacity 0.3s;
   }
 
   .device-card:hover {
-    border-color: #2e2e2e;
-    box-shadow: 0 8px 40px rgba(255,179,0,0.05);
+    border-color: rgba(232,160,32,0.25);
+    box-shadow: 0 8px 40px rgba(232,160,32,0.04);
     transform: translateY(-4px) !important;
   }
 
@@ -305,8 +313,8 @@
   .tag {
     font-size: 10px;
     color: var(--amber);
-    background: rgba(255,179,0,0.08);
-    border: 1px solid rgba(255,179,0,0.18);
+    background: rgba(232,160,32,0.08);
+    border: 1px solid rgba(232,160,32,0.18);
     border-radius: 4px;
     padding: 3px 8px;
     letter-spacing: 0.5px;
@@ -318,18 +326,18 @@
   .btn-flash {
     flex: 1;
     background: var(--amber);
-    color: #000;
+    color: var(--bg);
     border: none;
     border-radius: 8px;
     padding: 10px;
-    font-family: 'Syne', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     cursor: pointer;
     transition: background 0.2s;
   }
-  .btn-flash:hover { background: #FFC933; }
+  .btn-flash:hover { background: #F0B030; }
   .btn-flash:disabled { opacity: 0.35; cursor: not-allowed; }
 
   .btn-icon {
@@ -375,13 +383,17 @@
   }
 
   .footer-logo {
-    font-family: 'Syne', sans-serif;
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
+  .footer-logo .d { color: var(--white); }
+  .footer-logo .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--amber); }
   .footer-logo .a { color: var(--amber); }
-  .footer-logo .t { color: var(--white); }
   .footer-copy { font-size: 12px; color: var(--muted); }
 
   /* MODAL */
@@ -403,7 +415,7 @@
 
   .modal {
     background: var(--surface);
-    border: 1px solid #2a2a2a;
+    border: 1px solid var(--border);
     border-radius: 20px;
     padding: 32px;
     width: 100%;
@@ -440,7 +452,7 @@
     font-size: 14px;
     transition: color 0.2s, border-color 0.2s;
   }
-  .modal-close:hover { color: var(--white); border-color: #444; }
+  .modal-close:hover { color: var(--white); border-color: rgba(232,160,32,0.3); }
 
   .modal-info {
     font-size: 13px;
@@ -456,18 +468,18 @@
   .modal-btn {
     width: 100%;
     background: var(--amber);
-    color: #000;
+    color: var(--bg);
     border: none;
     border-radius: 10px;
     padding: 14px;
-    font-family: 'Syne', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     margin-bottom: 10px;
     transition: background 0.2s;
   }
-  .modal-btn:hover { background: #FFC933; }
+  .modal-btn:hover { background: #F0B030; }
 
   .modal-btn-outline {
     width: 100%;
@@ -483,7 +495,6 @@
   }
   .modal-btn-outline:hover { border-color: var(--amber); color: var(--amber); }
 
-  /* BOARD SELECTION */
   .step { display: none; }
   .step.active { display: block; }
 
@@ -512,11 +523,11 @@
   .step-dot.active {
     background: var(--amber);
     border-color: var(--amber);
-    color: #000;
+    color: var(--bg);
   }
 
   .step-dot.done {
-    background: rgba(255,179,0,0.15);
+    background: rgba(232,160,32,0.15);
     border-color: var(--amber);
     color: var(--amber);
   }
@@ -544,20 +555,13 @@
     text-align: center;
   }
 
-  .board-card:hover {
-    border-color: #444;
-  }
-
+  .board-card:hover { border-color: rgba(232,160,32,0.3); }
   .board-card.selected {
     border-color: var(--amber);
-    background: rgba(255,179,0,0.06);
+    background: rgba(232,160,32,0.06);
   }
 
-  .board-chip {
-    font-size: 18px;
-    margin-bottom: 6px;
-  }
-
+  .board-chip { font-size: 18px; margin-bottom: 6px; }
   .board-name {
     font-family: 'Syne', sans-serif;
     font-size: 12px;
@@ -565,12 +569,7 @@
     color: var(--white);
     margin-bottom: 2px;
   }
-
-  .board-sub {
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.5px;
-  }
+  .board-sub { font-size: 10px; color: var(--muted); letter-spacing: 0.5px; }
 
   .selected-board-info {
     display: flex;
@@ -580,11 +579,10 @@
     background: var(--surface2);
     border-radius: 10px;
     margin-bottom: 16px;
-    border: 1px solid rgba(255,179,0,0.2);
+    border: 1px solid rgba(232,160,32,0.2);
   }
 
   .selected-board-info .board-chip { margin-bottom: 0; font-size: 20px; }
-
   .selected-board-info .info-text { font-size: 12px; color: var(--muted); }
   .selected-board-info .info-name {
     font-family: 'Syne', sans-serif;
@@ -608,17 +606,25 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo"><span class="a">Akira</span><span class="t">Tek</span></a>
+  <a href="#" class="nav-logo">
+    <span class="d">Darken</span>
+    <span class="dot"></span>
+    <span class="a">Amber</span>
+  </a>
   <div class="nav-lang">
+    <button class="lang-btn" onclick="setLang('az')">AZ</button>
     <button class="lang-btn active" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('ru')">RU</button>
-    <button class="lang-btn" onclick="setLang('az')">AZ</button>
   </div>
 </nav>
 
 <section class="hero">
   <div class="hero-tag"><div class="dot"></div><span id="i-hero_tag"></span></div>
-  <div class="hero-logo"><span class="a">Akira</span><span class="t">Tek</span></div>
+  <div class="hero-logo">
+    <span class="d">Darken</span>
+    <span class="sep">·</span>
+    <span class="a">Amber</span>
+  </div>
   <p class="hero-sub" id="i-hero_sub"></p>
   <a href="#devices" class="hero-cta">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -634,7 +640,11 @@
 </section>
 
 <footer>
-  <div class="footer-logo"><span class="a">Akira</span><span class="t">Tek</span></div>
+  <div class="footer-logo">
+    <span class="d">Darken</span>
+    <span class="dot"></span>
+    <span class="a">Amber</span>
+  </div>
   <div class="footer-copy" id="i-footer_copy"></div>
 </footer>
 
@@ -644,23 +654,17 @@
       <div class="modal-title" id="modalTitle">Flash Firmware</div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
-
-    <!-- Step indicator -->
     <div class="step-indicator">
       <div class="step-dot active" id="dot1">1</div>
       <div class="step-line"></div>
       <div class="step-dot" id="dot2">2</div>
     </div>
-
-    <!-- Step 1: Board Selection -->
     <div class="step active" id="step1">
       <div class="modal-info" id="i-modal_board_hint"></div>
       <div class="boards-grid" id="boardsGrid"></div>
       <button class="modal-btn" id="btnNext" onclick="goStep2()" disabled style="opacity:0.4"></button>
       <button class="modal-btn-outline" onclick="closeModal()" id="i-modal_cancel"></button>
     </div>
-
-    <!-- Step 2: Flash -->
     <div class="step" id="step2">
       <div class="selected-board-info" id="selectedBoardInfo"></div>
       <div class="modal-info" id="i-modal_info"></div>
@@ -678,7 +682,7 @@ const i18n = {
     hero_cta:         "Explore Devices",
     devices_label:    "Our Devices",
     devices_title:    "Choose your <span>device</span>",
-    footer_copy:      "© 2026 AkiraTek. Open source IoT platform.",
+    footer_copy:      "© 2026 Darken · Amber. Open source IoT platform.",
     modal_board_hint: "Select the board your device is built on.",
     modal_info:       "Connect your device via USB, then click Flash. Your browser will ask you to select the serial port.",
     modal_flash:      "⚡ Start Flashing",
@@ -694,7 +698,7 @@ const i18n = {
     hero_cta:         "Устройства",
     devices_label:    "Наши устройства",
     devices_title:    "Выберите <span>устройство</span>",
-    footer_copy:      "© 2026 AkiraTek. Открытая IoT платформа.",
+    footer_copy:      "© 2026 Darken · Amber. Открытая IoT платформа.",
     modal_board_hint: "Выберите плату, на которой собрано ваше устройство.",
     modal_info:       "Подключите устройство по USB, затем нажмите «Прошить». Браузер попросит выбрать серийный порт.",
     modal_flash:      "⚡ Прошить",
@@ -710,7 +714,7 @@ const i18n = {
     hero_cta:         "Cihazları Kəşf Et",
     devices_label:    "Cihazlarımız",
     devices_title:    "Öz <span>cihazınızı</span> seçin",
-    footer_copy:      "© 2026 AkiraTek. Açıq mənbəli IoT platforması.",
+    footer_copy:      "© 2026 Darken · Amber. Açıq mənbəli IoT platforması.",
     modal_board_hint: "Cihazınızın qurulduğu platanı seçin.",
     modal_info:       "Cihazınızı USB ilə qoşun, sonra Flash düyməsinə basın. Brauzer sizdən serial port seçməyi xahiş edəcək.",
     modal_flash:      "⚡ Yaz",
@@ -723,10 +727,10 @@ const i18n = {
 };
 
 const boards = [
-  { id: 'nodemcu',   chip: '🔵', name: 'NodeMCU',      sub: 'ESP8266' },
-  { id: 'd1mini',    chip: '🔵', name: 'Wemos D1 Mini', sub: 'ESP8266' },
-  { id: 'esp32dev',  chip: '🟠', name: 'DevKit',        sub: 'ESP32' },
-  { id: 'esp32c3',   chip: '🟢', name: 'C3 SuperMini',  sub: 'ESP32-C3' },
+  { id: 'nodemcu',   chip: '🔵', name: 'NodeMCU',       sub: 'ESP8266' },
+  { id: 'd1mini',    chip: '🔵', name: 'Wemos D1 Mini',  sub: 'ESP8266' },
+  { id: 'esp32dev',  chip: '🟠', name: 'DevKit',         sub: 'ESP32' },
+  { id: 'esp32c3',   chip: '🟢', name: 'C3 SuperMini',   sub: 'ESP32-C3' },
 ];
 
 const devices = [
@@ -783,7 +787,6 @@ function applyTranslations() {
     const key = el.id.slice(2);
     el.innerHTML = t(key);
   });
-  // Update btnNext label separately (no id prefix trick since it's also disabled-toggled)
   document.getElementById('btnNext').textContent = t('modal_next');
 }
 
@@ -796,14 +799,12 @@ function setLang(l) {
   renderDevices();
 }
 
-// ── IntersectionObserver ──────────────────────────────────
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
   });
 }, { threshold: 0.1 });
 
-// ── Render Device Cards ───────────────────────────────────
 function renderDevices() {
   const grid = document.getElementById('devicesGrid');
   grid.innerHTML = '';
@@ -830,7 +831,6 @@ function renderDevices() {
   });
 }
 
-// ── Render Board Cards ────────────────────────────────────
 function renderBoards() {
   const grid = document.getElementById('boardsGrid');
   grid.innerHTML = '';
@@ -855,7 +855,6 @@ function selectBoard(id) {
   btn.style.opacity = '1';
 }
 
-// ── Modal Steps ───────────────────────────────────────────
 function openModal(id, name) {
   activeDevice = id;
   selectedBoard = null;
@@ -876,7 +875,6 @@ function goStep1() {
   document.getElementById('step2').classList.remove('active');
   document.getElementById('dot1').className = 'step-dot active';
   document.getElementById('dot2').className = 'step-dot';
-  // Reset next button
   const btn = document.getElementById('btnNext');
   if (!selectedBoard) { btn.disabled = true; btn.style.opacity = '0.4'; }
   renderBoards();
